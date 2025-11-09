@@ -593,3 +593,138 @@ body {
         page-break-inside: avoid;
     }
 }
+/* ============================================= */
+/* AJOUTS POUR LA NAVIGATION ET LA NOTE DE CADRAGE */
+/* ============================================= */
+
+/* Styles pour la barre de navigation principale */
+.main-nav {
+    width: 100%;
+    background: #1a202c; /* Assorti au header */
+    padding: 1rem 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 2rem;
+}
+
+.nav-item {
+    color: #a0aec0;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-item:hover {
+    background: #2d3748;
+    color: white;
+}
+
+.nav-item.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Styles pour le système d'onglets */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Styles spécifiques pour la page "Note de Cadrage" */
+.lit-review-quote {
+    font-size: 1.125rem;
+    font-style: italic;
+    line-height: 1.7;
+    border-left: 4px solid #667eea;
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    color: #4a5568;
+    background: #f7fafc;
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.lit-review-h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.lit-review-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.lit-review-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.75rem;
+    color: #4a5568;
+    line-height: 1.7;
+}
+
+.lit-review-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #38a169; /* Vert */
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.lit-review-sources {
+    list-style: none;
+    padding-left: 0;
+}
+
+.lit-review-sources li {
+    background: #f7fafc;
+    border-left: 3px solid #764ba2;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: #2d3748;
+}
+
+/* Ajustement pour que le premier onglet ne soit pas collé au menu */
+.tab-content .container {
+    margin-top: 0; /* Le container original a un margin-top */
+}
+
+/* On remet le margin-top pour le container de la Fiche Projet, 
+   mais pas pour la Note de Cadrage qui est déjà dans un .container */
+#fiche-projet .container {
+    margin-top: 2rem;
+}
